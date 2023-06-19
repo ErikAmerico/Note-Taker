@@ -36,6 +36,7 @@ router.post('/api/notes', (req, res) => {
           err ? console.error(err) : console.info(`\nData written to ${db}`)
         );
       }
+      
     })
 
       const response = {
