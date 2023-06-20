@@ -7,7 +7,12 @@ const db = '../develop/db/db.json';
 
   // GET /api/notes route
 router.get('/api/notes', (req, res) => {
-  fs.readFile(db, 'utf8', (err, data) => res.json(JSON.parse(data)))
+  fs.readFile(db, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    }
+    res.json(JSON.parse(data));
+  });
 });
 
   // POST /api/notes route
