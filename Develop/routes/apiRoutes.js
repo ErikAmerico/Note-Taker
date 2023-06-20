@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
-const db = '../develop/db/db.json';
+// const db = '../develop/db/db.json';
+const db = 'Develop/db/db.json';
 
 
   // GET /api/notes route
