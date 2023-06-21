@@ -26,11 +26,11 @@ To run this program:
 ## Screenshots
 This shows the home page of the application. 
 
-![Index](Assets\Note-Taker-Index.png)
+![Index](/Assets/Note-Taker-Index.png)
 
 This shows the page where you write, save and delete notes.
 
-![Note Page](Assets\Note-taker-Note.png)
+![Note Page](/Assets/Note-taker-Note.png)
 
 ## Contact
 
