@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
-// const db = '../develop/db/db.json';
 const db = 'Develop/db/db.json';
 
 
@@ -27,8 +26,6 @@ router.post('/api/notes', (req, res) => {
       text,
       id: uuidv4()
     };
-    // const newNote = req.body;
-    // newNote.id = uuidv4();
 
     fs.readFile(db, 'utf8', (err, data) => {
       if (err) {
@@ -57,6 +54,33 @@ router.post('/api/notes', (req, res) => {
   }
 
 });
+
+
+// router to delete note
+router.delete('/api/notes/:id', (req, res) => {
+  const id = req.params.id;
+
+  fs.readFile(db, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      let parsedData = JSON.parse(data);
+      const filteredData = parsedData.filter((note) => note.id !== id);
+
+      fs.writeFile(db, JSON.stringify(filteredData, null, 4), (err) =>
+        err ? console.error(err) : console.info(`\nNote removed from ${db}`)
+      );
+
+      const response = {
+        status: 'success',
+        body: filteredData,
+      };
+
+      res.status(200).send(response);
+    }
+  });
+});
+
 
 
 
